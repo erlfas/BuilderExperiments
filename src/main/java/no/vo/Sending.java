@@ -1,10 +1,10 @@
-package no.fasmer.sendingbuilder;
+package no.vo;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
-import no.fasmer.sendingbuilder.Part.PartBuilder;
+import no.vo.Part.PartBuilder;
 
 public class Sending {
 

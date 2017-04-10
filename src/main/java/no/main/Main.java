@@ -1,6 +1,8 @@
-package no.fasmer.sendingbuilder;
+package no.main;
 
 import java.time.LocalDateTime;
+import no.vo.Part;
+import no.vo.Sending;
 
 public class Main {
 

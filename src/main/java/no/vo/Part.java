@@ -1,4 +1,4 @@
-package no.fasmer.sendingbuilder;
+package no.vo;
 
 import java.util.function.Function;
 
