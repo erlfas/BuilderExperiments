@@ -1,41 +1,41 @@
 package no.main;
 
 import java.time.LocalDateTime;
-import no.vo.Part;
-import no.vo.Sending;
+import no.vo.SubTing;
+import no.vo.Ting;
 
 public class Main {
 
     public static void main(String[] args) {
-        final Part avs = Part.make(part -> part.type("AVS").navn("Komplett").adresse("Industriveien 1"));
-        System.out.println(avs);
+        final SubTing subting = SubTing.make(st -> st.id("AVS").beskrivelse("Komplett").tema("tema"));
+        System.out.println(subting);
 
-        final Sending sending = Sending.make(s -> s
-                .sendNr("123456789")
-                .produkt("Z")
-                .systemdato(LocalDateTime.now())
-                .part(p -> p
-                        .type("AVS")
-                        .navn("Ola AVS")
-                        .adresse("Industriveien 1")
+        final Ting ting = Ting.make(s -> s
+                .id("123456789")
+                .beskrivelse("beskrivelsen")
+                .dato(LocalDateTime.now())
+                .subting(p -> p
+                        .id("sub1")
+                        .beskrivelse("beskrivelsen av sub1")
+                        .tema("tema1")
                 )
-                .part(p -> p
-                        .type("LEV")
-                        .navn("Ola LEV")
-                        .adresse("Gateveien 123")
+                .subting(p -> p
+                        .id("sub2")
+                        .beskrivelse("beskrivelsen av sub2")
+                        .tema("tema2")
                 )
-                .sluttPaaParter()
+                .sluttPaaSubting()
         );
         
-        System.out.println("SendNr: " + sending.getSendNr());
-        System.out.println("Produkt: " + sending.getProdukt());
-        System.out.println("Systemdato: " + sending.getSystemdato());
+        System.out.println("Id: " + ting.getId());
+        System.out.println("Beskrivelse: " + ting.getBeskrivelse());
+        System.out.println("Dato: " + ting.getDato());
         
-        for (Part part : sending.getParter()) {
-            System.out.println("PART:");
-            System.out.println(" - type: " + part.getType());
-            System.out.println(" - navn: " + part.getNavn());
-            System.out.println(" - adresse: " + part.getAdresse());
+        for (SubTing st : ting.getSubting()) {
+            System.out.println("Subting:");
+            System.out.println(" - id: " + st.getId());
+            System.out.println(" - beskrivelse: " + st.getBeskrivelse());
+            System.out.println(" - tema: " + st.getTema());
         }
     }
 
